@@ -1,9 +1,9 @@
-import Util from './util';
+import Util from './Util';
 import Header from './entity/Header';
 import Payload from './entity/Payload';
-import Signature from './signature';
+import Signature from './Signature';
 import Action from './entity/Action';
-import Identifiers from './identifiers';
+import Identifiers from './Identifiers';
 import ChannelType from './entity/ChannelType';
 
 export class VivoxToken {

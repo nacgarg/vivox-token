@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.VivoxToken = void 0;
-const util_1 = require("./util");
-const signature_1 = require("./signature");
+const Util_1 = require("./Util");
+const Signature_1 = require("./Signature");
 const Action_1 = require("./entity/Action");
-const identifiers_1 = require("./identifiers");
+const Identifiers_1 = require("./Identifiers");
 class VivoxToken {
     constructor(issuer, key, domain, adminAccount) {
         this.issuer = issuer;
@@ -19,7 +19,7 @@ class VivoxToken {
             exp: Math.floor(expiredAt.getTime() / 1000),
             vxa: Action_1.default.Login,
             vxi: serialNumber,
-            f: 'sip:' + identifiers_1.default.userName(this.issuer, userID) + this.domain,
+            f: 'sip:' + Identifiers_1.default.userName(this.issuer, userID) + this.domain,
         };
         if (debug) {
             payload.debug = Math.floor(Date.now() / 1000);
@@ -33,9 +33,9 @@ class VivoxToken {
             exp: Math.floor(expiredAt.getTime() / 1000),
             vxa: Action_1.default.Join,
             vxi: serialNumber,
-            f: 'sip:' + identifiers_1.default.userName(this.issuer, userID) + this.domain,
+            f: 'sip:' + Identifiers_1.default.userName(this.issuer, userID) + this.domain,
             t: 'sip:' +
-                identifiers_1.default.channelName(channelType, this.issuer, channelID) +
+                Identifiers_1.default.channelName(channelType, this.issuer, channelID) +
                 this.domain,
         };
         if (debug) {
@@ -50,9 +50,9 @@ class VivoxToken {
             exp: Math.floor(expiredAt.getTime() / 1000),
             vxa: Action_1.default.JoinMuted,
             vxi: serialNumber,
-            f: 'sip:' + identifiers_1.default.userName(this.issuer, userID) + this.domain,
+            f: 'sip:' + Identifiers_1.default.userName(this.issuer, userID) + this.domain,
             t: 'sip:' +
-                identifiers_1.default.channelName(type, this.issuer, channelID) +
+                Identifiers_1.default.channelName(type, this.issuer, channelID) +
                 this.domain,
         };
         return this.makeToken(header, payload);
@@ -64,10 +64,10 @@ class VivoxToken {
             exp: Math.floor(expiredAt.getTime() / 1000),
             vxa: Action_1.default.Kick,
             vxi: serialNumber,
-            sub: 'sip:' + identifiers_1.default.userName(this.issuer, toUserID) + this.domain,
-            f: 'sip:' + identifiers_1.default.userName(this.issuer, fromUserID) + this.domain,
+            sub: 'sip:' + Identifiers_1.default.userName(this.issuer, toUserID) + this.domain,
+            f: 'sip:' + Identifiers_1.default.userName(this.issuer, fromUserID) + this.domain,
             t: 'sip:' +
-                identifiers_1.default.channelName(type, this.issuer, channelID) +
+                Identifiers_1.default.channelName(type, this.issuer, channelID) +
                 this.domain,
         };
         return this.makeToken(header, payload);
@@ -79,10 +79,10 @@ class VivoxToken {
             exp: Math.floor(expiredAt.getTime() / 1000),
             vxa: Action_1.default.Kick,
             vxi: serialNumber,
-            sub: 'sip:' + identifiers_1.default.userName(this.issuer, toUserID) + this.domain,
+            sub: 'sip:' + Identifiers_1.default.userName(this.issuer, toUserID) + this.domain,
             f: 'sip:' + this.adminAccount + this.domain,
             t: 'sip:' +
-                identifiers_1.default.channelName(type, this.issuer, channelID) +
+                Identifiers_1.default.channelName(type, this.issuer, channelID) +
                 this.domain,
         };
         return this.makeToken(header, payload);
@@ -94,9 +94,9 @@ class VivoxToken {
             exp: Math.floor(expiredAt.getTime() / 1000),
             vxa: Action_1.default.Kick,
             vxi: serialNumber,
-            sub: 'sip:' + identifiers_1.default.userName(this.issuer, toUserID) + this.domain,
-            f: 'sip:' + identifiers_1.default.userName(this.issuer, fromUserID) + this.domain,
-            t: 'sip:' + identifiers_1.default.serverName(this.issuer) + this.domain,
+            sub: 'sip:' + Identifiers_1.default.userName(this.issuer, toUserID) + this.domain,
+            f: 'sip:' + Identifiers_1.default.userName(this.issuer, fromUserID) + this.domain,
+            t: 'sip:' + Identifiers_1.default.serverName(this.issuer) + this.domain,
         };
         return this.makeToken(header, payload);
     }
@@ -107,9 +107,9 @@ class VivoxToken {
             exp: Math.floor(expiredAt.getTime() / 1000),
             vxa: Action_1.default.Kick,
             vxi: serialNumber,
-            sub: 'sip:' + identifiers_1.default.userName(this.issuer, toUserID) + this.domain,
+            sub: 'sip:' + Identifiers_1.default.userName(this.issuer, toUserID) + this.domain,
             f: 'sip:' + this.adminAccount + this.domain,
-            t: 'sip:' + identifiers_1.default.serverName(this.issuer) + this.domain,
+            t: 'sip:' + Identifiers_1.default.serverName(this.issuer) + this.domain,
         };
         return this.makeToken(header, payload);
     }
@@ -120,9 +120,9 @@ class VivoxToken {
             exp: Math.floor(expiredAt.getTime() / 1000),
             vxa: Action_1.default.Kick,
             vxi: serialNumber,
-            f: 'sip:' + identifiers_1.default.userName(this.issuer, userID) + this.domain,
+            f: 'sip:' + Identifiers_1.default.userName(this.issuer, userID) + this.domain,
             t: 'sip:' +
-                identifiers_1.default.channelName(type, this.issuer, channelID) +
+                Identifiers_1.default.channelName(type, this.issuer, channelID) +
                 this.domain,
         };
         return this.makeToken(header, payload);
@@ -136,7 +136,7 @@ class VivoxToken {
             vxi: serialNumber,
             f: 'sip:' + this.adminAccount + this.domain,
             t: 'sip:' +
-                identifiers_1.default.channelName(type, this.issuer, channelID) +
+                Identifiers_1.default.channelName(type, this.issuer, channelID) +
                 this.domain,
         };
         return this.makeToken(header, payload);
@@ -148,10 +148,10 @@ class VivoxToken {
             exp: Math.floor(expiredAt.getTime() / 1000),
             vxa: Action_1.default.Mute,
             vxi: serialNumber,
-            sub: 'sip:' + identifiers_1.default.userName(this.issuer, toUserID) + this.domain,
-            f: 'sip:' + identifiers_1.default.userName(this.issuer, fromUserID) + this.domain,
+            sub: 'sip:' + Identifiers_1.default.userName(this.issuer, toUserID) + this.domain,
+            f: 'sip:' + Identifiers_1.default.userName(this.issuer, fromUserID) + this.domain,
             t: 'sip:' +
-                identifiers_1.default.channelName(type, this.issuer, channelID) +
+                Identifiers_1.default.channelName(type, this.issuer, channelID) +
                 this.domain,
         };
         return this.makeToken(header, payload);
@@ -163,10 +163,10 @@ class VivoxToken {
             exp: Math.floor(expiredAt.getTime() / 1000),
             vxa: Action_1.default.Mute,
             vxi: serialNumber,
-            sub: 'sip:' + identifiers_1.default.userName(this.issuer, toUserID) + this.domain,
+            sub: 'sip:' + Identifiers_1.default.userName(this.issuer, toUserID) + this.domain,
             f: 'sip:' + this.adminAccount + this.domain,
             t: 'sip:' +
-                identifiers_1.default.channelName(type, this.issuer, channelID) +
+                Identifiers_1.default.channelName(type, this.issuer, channelID) +
                 this.domain,
         };
         return this.makeToken(header, payload);
@@ -178,9 +178,9 @@ class VivoxToken {
             exp: Math.floor(expiredAt.getTime() / 1000),
             vxa: Action_1.default.Mute,
             vxi: serialNumber,
-            f: 'sip:' + identifiers_1.default.userName(this.issuer, fromUserID) + this.domain,
+            f: 'sip:' + Identifiers_1.default.userName(this.issuer, fromUserID) + this.domain,
             t: 'sip:' +
-                identifiers_1.default.channelName(type, this.issuer, channelID) +
+                Identifiers_1.default.channelName(type, this.issuer, channelID) +
                 this.domain,
         };
         return this.makeToken(header, payload);
@@ -194,7 +194,7 @@ class VivoxToken {
             vxi: serialNumber,
             f: 'sip:' + this.adminAccount + this.domain,
             t: 'sip:' +
-                identifiers_1.default.channelName(type, this.issuer, channelID) +
+                Identifiers_1.default.channelName(type, this.issuer, channelID) +
                 this.domain,
         };
         return this.makeToken(header, payload);
@@ -206,10 +206,10 @@ class VivoxToken {
             exp: Math.floor(expiredAt.getTime() / 1000),
             vxa: Action_1.default.Mute,
             vxi: serialNumber,
-            sub: 'sip:' + identifiers_1.default.userName(this.issuer, toUserID) + this.domain,
-            f: 'sip:' + identifiers_1.default.userName(this.issuer, fromUserID) + this.domain,
+            sub: 'sip:' + Identifiers_1.default.userName(this.issuer, toUserID) + this.domain,
+            f: 'sip:' + Identifiers_1.default.userName(this.issuer, fromUserID) + this.domain,
             t: 'sip:' +
-                identifiers_1.default.channelName(type, this.issuer, channelID) +
+                Identifiers_1.default.channelName(type, this.issuer, channelID) +
                 this.domain,
         };
         return this.makeToken(header, payload);
@@ -221,19 +221,19 @@ class VivoxToken {
             exp: Math.floor(expiredAt.getTime() / 1000),
             vxa: Action_1.default.Mute,
             vxi: serialNumber,
-            sub: 'sip:' + identifiers_1.default.userName(this.issuer, toUserID) + this.domain,
+            sub: 'sip:' + Identifiers_1.default.userName(this.issuer, toUserID) + this.domain,
             f: 'sip:' + this.adminAccount + this.domain,
             t: 'sip:' +
-                identifiers_1.default.channelName(type, this.issuer, channelID) +
+                Identifiers_1.default.channelName(type, this.issuer, channelID) +
                 this.domain,
         };
         return this.makeToken(header, payload);
     }
     makeToken(header, payload) {
         return [
-            util_1.default.base64URLEncode(JSON.stringify(header)),
-            util_1.default.base64URLEncode(JSON.stringify(payload)),
-            signature_1.default.sign(header, payload, this.key),
+            Util_1.default.base64URLEncode(JSON.stringify(header)),
+            Util_1.default.base64URLEncode(JSON.stringify(payload)),
+            Signature_1.default.sign(header, payload, this.key),
         ].join('.');
     }
 }
