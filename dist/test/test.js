@@ -5,10 +5,10 @@ console.log(src_1.VivoxToken);
 const vivoxToken = new src_1.VivoxToken('blindmelon-foobar-dev', 'secret!', 'tla.vivox.com', 'BlindMelon-FooBar-dev-Admin');
 describe('make vivox token', () => {
     test('login', () => {
-        expect(vivoxToken.login('jerky', 933000, new Date(Date.UTC(2016, 0, 1)))).toBe('e30.eyJpc3MiOiJibGluZG1lbG9uLWZvb2Jhci1kZXYiLCJleHAiOjE0NTE2MDY0MDAsInZ4YSI6ImxvZ2luIiwidnhpIjo5MzMwMDAsImYiOiJzaXA6LmJsaW5kbWVsb24tZm9vYmFyLWRldi5qZXJreS5AdGxhLnZpdm94LmNvbSJ9.96nkemVShmPooSE_Iwz-0XNmuk5UAGKBtJcBbtIOhxg');
+        expect(vivoxToken.login('jerky', 933000, false, new Date(Date.UTC(2016, 0, 1)))).toBe('e30.eyJpc3MiOiJibGluZG1lbG9uLWZvb2Jhci1kZXYiLCJleHAiOjE0NTE2MDY0MDAsInZ4YSI6ImxvZ2luIiwidnhpIjo5MzMwMDAsImYiOiJzaXA6LmJsaW5kbWVsb24tZm9vYmFyLWRldi5qZXJreS5AdGxhLnZpdm94LmNvbSJ9.96nkemVShmPooSE_Iwz-0XNmuk5UAGKBtJcBbtIOhxg');
     });
     test('join', () => {
-        expect(vivoxToken.join('jerky', src_1.ChannelType.NonPositionalChannels, 'testchannel', 444000, new Date(Date.UTC(2016, 0, 1)))).toBe('e30.eyJpc3MiOiJibGluZG1lbG9uLWZvb2Jhci1kZXYiLCJleHAiOjE0NTE2MDY0MDAsInZ4YSI6ImpvaW4iLCJ2eGkiOjQ0NDAwMCwiZiI6InNpcDouYmxpbmRtZWxvbi1mb29iYXItZGV2Lmplcmt5LkB0bGEudml2b3guY29tIiwidCI6InNpcDpjb25mY3RsLWctYmxpbmRtZWxvbi1mb29iYXItZGV2LnRlc3RjaGFubmVsQHRsYS52aXZveC5jb20ifQ.9KPldWQ8vDewoBF4-ZIQCDwkVctfLqmlvg4pV-KTENk');
+        expect(vivoxToken.join('jerky', src_1.ChannelType.NonPositionalChannels, 'testchannel', 444000, false, new Date(Date.UTC(2016, 0, 1)))).toBe('e30.eyJpc3MiOiJibGluZG1lbG9uLWZvb2Jhci1kZXYiLCJleHAiOjE0NTE2MDY0MDAsInZ4YSI6ImpvaW4iLCJ2eGkiOjQ0NDAwMCwiZiI6InNpcDouYmxpbmRtZWxvbi1mb29iYXItZGV2Lmplcmt5LkB0bGEudml2b3guY29tIiwidCI6InNpcDpjb25mY3RsLWctYmxpbmRtZWxvbi1mb29iYXItZGV2LnRlc3RjaGFubmVsQHRsYS52aXZveC5jb20ifQ.9KPldWQ8vDewoBF4-ZIQCDwkVctfLqmlvg4pV-KTENk');
     });
     test('joinMuted', () => {
         expect(vivoxToken.joinMuted('jerky', src_1.ChannelType.NonPositionalChannels, 'testchannel', 542680, new Date(Date.UTC(2016, 0, 1)))).toBe('e30.eyJpc3MiOiJibGluZG1lbG9uLWZvb2Jhci1kZXYiLCJleHAiOjE0NTE2MDY0MDAsInZ4YSI6ImpvaW5fbXV0ZWQiLCJ2eGkiOjU0MjY4MCwiZiI6InNpcDouYmxpbmRtZWxvbi1mb29iYXItZGV2Lmplcmt5LkB0bGEudml2b3guY29tIiwidCI6InNpcDpjb25mY3RsLWctYmxpbmRtZWxvbi1mb29iYXItZGV2LnRlc3RjaGFubmVsQHRsYS52aXZveC5jb20ifQ.wnbZALyaDAYfrM6BXbp1wYHvVyOtQU_ASuPIpzf04B8');

@@ -11,7 +11,7 @@ const vivoxToken = new VivoxToken(
 describe('make vivox token', () => {
   test('login', () => {
     expect(
-      vivoxToken.login('jerky', 933000, new Date(Date.UTC(2016, 0, 1)))
+      vivoxToken.login('jerky', 933000, false, new Date(Date.UTC(2016, 0, 1)))
     ).toBe(
       'e30.eyJpc3MiOiJibGluZG1lbG9uLWZvb2Jhci1kZXYiLCJleHAiOjE0NTE2MDY0MDAsInZ4YSI6ImxvZ2luIiwidnhpIjo5MzMwMDAsImYiOiJzaXA6LmJsaW5kbWVsb24tZm9vYmFyLWRldi5qZXJreS5AdGxhLnZpdm94LmNvbSJ9.96nkemVShmPooSE_Iwz-0XNmuk5UAGKBtJcBbtIOhxg'
     );
@@ -24,6 +24,7 @@ describe('make vivox token', () => {
         ChannelType.NonPositionalChannels,
         'testchannel',
         444000,
+        false,
         new Date(Date.UTC(2016, 0, 1))
       )
     ).toBe(

@@ -6,5 +6,6 @@ declare type Payload = {
     sub?: string;
     f?: string;
     t?: string;
+    debug?: number;
 };
 export default Payload;

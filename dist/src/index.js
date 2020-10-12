@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var VivoxToken_1 = require("./VivoxToken");
-exports.VivoxToken = VivoxToken_1.VivoxToken;
+Object.defineProperty(exports, "VivoxToken", { enumerable: true, get: function () { return VivoxToken_1.VivoxToken; } });
 var ChannelType_1 = require("./entity/ChannelType");
-exports.ChannelType = ChannelType_1.ChannelType;
+Object.defineProperty(exports, "ChannelType", { enumerable: true, get: function () { return ChannelType_1.ChannelType; } });

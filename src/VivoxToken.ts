@@ -1,9 +1,9 @@
-import Util from './Util';
+import Util from './util';
 import Header from './entity/Header';
 import Payload from './entity/Payload';
-import Signature from './Signature';
+import Signature from './signature';
 import Action from './entity/Action';
-import Identifiers from './Identifiers';
+import Identifiers from './identifiers';
 import ChannelType from './entity/ChannelType';
 
 export class VivoxToken {
@@ -28,6 +28,7 @@ export class VivoxToken {
   public login(
     userID: string,
     serialNumber: number = Date.now(),
+    debug: boolean = false,
     expiredAt: Date = new Date(Date.now() + VivoxToken.ADaySecond)
   ): string {
     const header: Header = {};
@@ -38,6 +39,9 @@ export class VivoxToken {
       vxi: serialNumber,
       f: 'sip:' + Identifiers.userName(this.issuer, userID) + this.domain,
     };
+    if (debug) {
+      payload.debug = Math.floor(Date.now() / 1000);
+    }
     return this.makeToken(header, payload);
   }
 
@@ -46,6 +50,7 @@ export class VivoxToken {
     channelType: ChannelType,
     channelID: string,
     serialNumber: number = Date.now(),
+    debug: boolean = false,
     expiredAt: Date = new Date(Date.now() + VivoxToken.ADaySecond)
   ): string {
     const header: Header = {};
@@ -60,6 +65,9 @@ export class VivoxToken {
         Identifiers.channelName(channelType, this.issuer, channelID) +
         this.domain,
     };
+    if (debug) {
+      payload.debug = Math.floor(Date.now() / 1000);
+    }
     return this.makeToken(header, payload);
   }
 

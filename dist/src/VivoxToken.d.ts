@@ -6,8 +6,8 @@ export declare class VivoxToken {
     domain: string;
     adminAccount: string;
     constructor(issuer: string, key: string, domain: string, adminAccount: string);
-    login(userID: string, serialNumber?: number, expiredAt?: Date): string;
-    join(userID: string, channelType: ChannelType, channelID: string, serialNumber?: number, expiredAt?: Date): string;
+    login(userID: string, serialNumber?: number, debug?: boolean, expiredAt?: Date): string;
+    join(userID: string, channelType: ChannelType, channelID: string, serialNumber?: number, debug?: boolean, expiredAt?: Date): string;
     joinMuted(userID: string, type: ChannelType, channelID: string, serialNumber?: number, expiredAt?: Date): string;
     kick(fromUserID: string, toUserID: string, type: ChannelType, channelID: string, serialNumber?: number, expiredAt?: Date): string;
     kickByAdmin(toUserID: string, type: ChannelType, channelID: string, serialNumber?: number, expiredAt?: Date): string;

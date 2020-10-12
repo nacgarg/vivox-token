@@ -19,6 +19,8 @@ type Payload = {
 
   // to; the SIP URI of the channel
   t?: string;
+
+  debug?: number;
 };
 
 export default Payload;
